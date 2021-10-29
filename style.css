@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+:root{
+    --gradientfrom:hsl(6, 100%, 80%);
+    --gradientto:hsl(335, 100%, 65%);
+    --paleblue:hsl(243, 100%, 93%);
+    --grayblue:hsl(229, 7%, 55%);
+    --darkblue:hsl(228, 56%, 26%);
+    --verydarkblue:hsl(229, 57%, 11%);
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family:'Raleway', sans-serif;
+}
+
+body{
+    font-size: 14px;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: url('./images/bg-desktop.png');
+    background-position: left 120%;
+    background-repeat: no-repeat;
+    background-color: var(--verydarkblue);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.upload-container{
+    background-color: var(--darkblue);
+    width: 350px;
+    height: 210px;
+    padding: 40px;
+    border-radius: 10px 100px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.data-container{
+    background-color: var(--darkblue);
+    width: 550px;
+    height: 160px;
+    padding: 40px;
+    border-radius: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px;
+    position: relative;
+    top: 24px;
+}
+
+.status-bar{
+    background-color: var(--verydarkblue);
+    height: 17px;
+    width: 100%;
+    border-radius: 30px;
+}
+
+.fillerbar{
+    height: 14px;
+    margin: 2px;
+    width: 81.5%;
+    border-radius: 30px;
+    position: relative;
+    background: linear-gradient(90deg, var(--gradientfrom), var(--gradientto));
+    animation: data-used 5s 1;
+    animation-fill-mode: forwards;
+}
+
+.fillerbar::after{
+    content: '';
+    height: 12px;
+    width: 12px;
+    display: block;
+    position: absolute;
+    right: 2px;
+    top: 1px;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 100px;
+}
+
+.status-bubble{
+    position:absolute;
+    font-weight: 700;
+    color: var(--grayblue);
+    background-color: hsl(0, 0%, 100%);
+    text-transform: uppercase;
+    padding: 20px;
+    border-radius: 10px;
+    top: -50px;
+    right: 0;
+    z-index:6;
+}
+
+.status-bubble::after{
+    content:'';
+    display:block;
+    position: absolute;
+    width: 0px;
+    height: 0;
+    border-top: 50px solid white;
+    border-right: 30px solid transparent;
+    border-left: 30px solid transparent;
+    z-index:7;
+    right: -1px;
+    bottom:-28px;
+}
+
+.data-left{
+    color: rgb(0,0,0);
+    font-size: xx-large;
+}
+.icons{
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icon{
+    background-color: var(--verydarkblue);
+    width: 45px;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.status{
+    color: var(--paleblue);
+    font-weight: 400;
+}
+.labels{
+ display: flex;
+ justify-content: space-between;
+ color: var(--paleblue);
+ font-weight: 700;
+}
+
+.gb{
+ font-weight: 700;
+}
+
+@media screen and (max-width:700px){
+    .container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .status-bubble::after{
+        display: none;
+    }
+
+    .status-bubble{
+        top:auto;
+        right:37%;
+        bottom: -40px;
+    }
+
+    .data-container{
+        margin: 0;
+        width: 80vw;
+        min-width: 340px;
+    }
+
+    .upload-container{
+        width: 80vw;
+        min-width: 340px;
+
+    }
+
+
+}
+
+@keyframes data-used {
+    0%{
+        width: 0%;
+    }
+
+    100%{
+        width: 81.5%;
+    }
+}
+
+
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
